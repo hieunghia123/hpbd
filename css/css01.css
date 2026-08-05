@@ -1,101 +1,165 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Dec 22, 2016, 11:26:01 PM
-    Author     : Administrator
-*/
+/* ==========================================
+   GLOBAL STYLES (Cấu hình chung)
+   ========================================== */
 
 body {
   background-image: url("../img/hpbd.jpg");
-  background-size: 100%;
-  background-repeat: repeat-y;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: "Fredoka One", cursive;
   color: white;
+  padding-bottom: 70px; /* Tránh đè nội dung vào footer fixed */
 }
-@media all and (max-width: 320px) {
-   body {
-      background: #e7e7e7;
-   }
+
+/* Banner chính */
 .img_banner_hpbd { 
   background-image: url("../img/3d28ae425248a05544665dd53400f52e.jpg");
   background-repeat: no-repeat;
-  background-position: left center;
-  background-size: auto;
+  background-position: center;
+  background-size: cover;
+  padding: 30px 15px;
+  margin-bottom: 20px;
 }
+
+.banner-title {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
 h1.heading {
   font-family: "Pacifico", cursive;
 }
-.jumbotron {
-  opacity: 0.4;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
-}
+
 h4 {
   font-family: "Nunito Sans", sans-serif;
 }
-.bg-snow-tranparent-normal {
-  opacity: 1;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
+
+/* Tối ưu hiển thị ảnh tấm thiệp */
+.img-card {
+  max-width: 100%;
+  height: auto !important; /* Loại bỏ chiều cao 360px cứng gây vỡ ảnh */
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
 }
+
 .bg-snow-tranparent-hidden {
-  opacity: 0.8;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
+  opacity: 0.9;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
-.footer {
-  height: 250px;
-  font-size: 20px;
-  background-color: darkblue;
-  color: skyblue;
-  padding-top: 100px;
-  opacity: 0.5;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
+
+.bg-snow-tranparent-hidden:hover {
+  opacity: 1;
+  transform: scale(1.02);
 }
+
+/* Khung nội dung bên trong Modal */
 .containeri {
   position: relative;
   text-align: center;
+  margin: 0 auto;
+  max-width: 100%;
 }
+
+.containeri img {
+  max-width: 100%;
+  height: auto !important; /* Loại bỏ chiều cao 560px cứng */
+  display: block;
+  margin: 0 auto;
+}
+
+audio {
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* Footer cố định bên dưới */
+.footer {
+  min-height: 50px;
+  background-color: rgba(0, 0, 139, 0.85); /* Trong suốt mượt mà không làm mờ chữ */
+  color: skyblue;
+  padding: 15px 0;
+  z-index: 1000;
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/* ==========================================
+   POSITIONING (Vị trí các lớp overlay)
+   ========================================== */
+
 .top-right {
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: 5%;
+  right: 5%;
   color: #728e98;
   font-size: 90%;
 }
 
 .top-left {
   position: absolute;
-  top: 132px;
-  right: 29px;
+  top: 15%;
+  left: 5%;
   color: #6c7c6b;
   font-size: 80%;
 }
+
 .center {
   position: absolute;
-  bottom: 115px;
-  left: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Căn chuẩn giữa theo mọi độ phân giải */
   color: #6c7c6b;
   font-size: 80%;
+  width: 90%;
 }
+
 .and {
   position: absolute;
-  bottom: 160px;
-  left: 240px;
+  bottom: 25%;
+  left: 50%;
+  transform: translateX(-50%);
   color: #6c7c6b;
   font-size: 80%;
 }
 
 .bottom-right {
   position: absolute;
-  bottom: 253px;
-  right: 20px;
+  bottom: 5%;
+  right: 5%;
   color: #6c7c6b;
   font-size: 80%;
 }
+
 .bottom-left {
   position: absolute;
-  bottom: 5px;
-  left: 270px;
+  bottom: 5%;
+  left: 5%;
   color: #b78690;
+  font-size: 80%;
+}
+
+/* ==========================================
+   MEDIA QUERIES (Sửa lỗi thiếu ngoặc & tối ưu mobile)
+   ========================================== */
+
+@media all and (max-width: 480px) {
+  body {
+    background-size: cover;
+  }
+  
+  .img_banner_hpbd h1 {
+    font-size: 24px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+  }
 }
